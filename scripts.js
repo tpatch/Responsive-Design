@@ -35,14 +35,14 @@
 			});
 			
 			$(document).keydown(function(e){
-				if (e.keyCode == 40 || e.keyCode == 39) {
+				if (e.keyCode == 40 || e.keyCode == 39 || e.keyCode == 34) {
 				   window.scrollBy(0, yscroll);
 				   return false;
 				}
 			});
 			
 			$(document).keydown(function(e){
-				if (e.keyCode == 38 || e.keyCode == 37) {
+				if (e.keyCode == 38 || e.keyCode == 37 || e.keyCode == 33) {
 				   window.scrollBy(0, -yscroll);
 				   return false;
 				}

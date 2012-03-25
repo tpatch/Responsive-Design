@@ -48,3 +48,10 @@ h1 {
 	text-shadow:1px 2px 1px #333;
 }
 .one span { display:block; width:80%; text-align:center; margin:0 auto; position:relative; top:34%; font-size:2em; }
+
+
+/** Mobile Styles **/
+@media (max-width:599px) {
+	.slide h1 { font-size:3em; }	
+}
+
