@@ -15,7 +15,6 @@
 			var yscrollClear = $(window).height();
 			var maxScroll = ($(".slide").length) * yscrollClear;
 			$(".prev").addClass("hidden");
-
 			
 			// Show/hide Arrows based on slide
 			$(window).scroll(function() {
