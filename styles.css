@@ -98,7 +98,8 @@ h1 {
 
 /** Mobile Styles **/
 @media (max-width:600px) {
-	body { font-size:.6em; }
+	body { font-size:.5em; }
+	.slide { min-height:100%; height:auto; }
 	.content { width:90%; }
 	.button { display:none; }
 }
