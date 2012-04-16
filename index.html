@@ -33,9 +33,72 @@
         </div>
     </div>
     
+    <div class="slide blue3"> 
+        <div class="content"> 
+            <h2>How Responsive Development is Possible</h2>
+            <hr />
+            <p>CSS Media Queries. We are able to create styles specifically for different screen sizes.</p>
+            <ul>
+                <li>Display the same content differently</li>
+                <li>"Reflow" between different screen resolutions</li>
+                <li>Three columns becomes two, two becomes one</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide blue1"> 
+        <div class="content"> 
+            <h2>Using Media Queries</h2>
+            <hr />
+            <ul>
+                <li>@media</li>
+                <li>Commonly used for printing</li>
+                <li>Operators: <span class="mono">not, and, only</span></li>
+                <li><span class="mono">only</span> hides styles sheets from older browsers</li>
+                <li>Has several features: <span class="mono">color, devices-aspect-ratio, orientation</span>, etc.</li>
+                <li>The <span class="mono">device-width</span> feature is used for responsive development</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide blue2"> 
+        <div class="content"> 
+            <h2>Using Media Queries, cont.</h2>
+            <hr />
+            <code>
+                <p class="comment">/* Smartphones (portrait and landscape) */</p>
+                <p class="media">@media only screen and (min-device-width:320px) and (max-device-width:480px)</p>
+                <p>{</p>
+                <p class="tabbed">/* Styles */</p>
+                <p>}</p>
+
+                <br />
+
+                <p class="comment">/* iPads (portrait and landscape) */</p>
+                <p class="media">@media only screen and (min-device-width:768px) and (max-device-width:1024px)</p>
+                <p>{</p>
+                <p class="tabbed">/* Styles */</p>
+                <p>}</p>
+            </code>
+        </div>
+    </div>
+
+    
+
+    <!-- Breakpoints -->
+    <div class="slide blue1">
+        <div class="content">
+            <h2>Breaking It Down</h2>
+            <hr />
+            <p>What screen sizes will be targeted? When will the layout cha</p>
+            <img src="images/breakpoints.png" alt="Common device widths" />
+        </div>
+    </div>
+
+    <!-- Bottom Up -->
 	<div class="slide blue3">
     	<div class="content">   
-            <h2>Getting Started</h2>
+            <h2>Bottom Up!</h2>
             <hr />
             <p>The big question: Where to start?</p>
             <blockquote><h3>From the bottom up, or from the top down?</h3></blockquote>
@@ -43,15 +106,7 @@
         </div>
     </div>
     
-    <!-- Breakpoints -->
-    <div class="slide blue1">
-    	<div class="content">
-            <h2>Hitting the Sweet Spots</h2>
-            <hr />
-            <p><a href="http://www.thismanslife.co.uk/projects/lab/responsiveillustration/">Sizing illustrated</a></p>
-            <img src="images/breakpoints.png" alt="Common device widths" />
-        </div>
-    </div>
+    
     
 
     <!-- Biblio/Links -->
