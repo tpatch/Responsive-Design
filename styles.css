@@ -21,6 +21,8 @@ a:active, a:hover, a:visited { color:#f1a924; }
 .blue3 { background:#2550A0; }
 
 .mono { font-family:monospace;}
+.tabbed { text-indent:1em; }
+img.tabbed { margin:0 0 0 1em;}
 
 .hidden { display:none; }
 .visible { display:block; }
@@ -68,7 +70,7 @@ a:active, a:hover, a:visited { color:#f1a924; }
 .content p { margin:0 0 12px 0; }
 .content ul { margin:20px 0 20px 50px; }
 .content img { max-width:100%; }
-.content p.footnote { position:absolute; bottom:7%; font-size:.7em; }
+.content p.footnote { position:absolute; width:80%; bottom:7%; font-size:.7em; }
 
 code { 
 	width:80%; 
@@ -82,7 +84,6 @@ code {
 .content code p { margin:0 0 6px 0; }
 code .comment { color:#6CCAC0; }
 code .media { color:#FFF; }
-code .tabbed { text-indent:1em; }
 
 
 /** Slide Specific Styles **/
@@ -106,7 +107,7 @@ h1 {
 	.button { display:none; }
 }
 
-@media (min-width:600px) and (max-width:960px) {
-		
+@media (min-width:600px) and (max-width:1024px) {
+	body { font-size:.8em; }
 }
 
