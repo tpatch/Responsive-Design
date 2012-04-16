@@ -37,12 +37,14 @@
         <div class="content"> 
             <h2>How Responsive Development is Possible</h2>
             <hr />
-            <p>CSS Media Queries. We are able to create styles specifically for different screen sizes.</p>
+            <h4>CSS Media Queries</h4>
+            <p>We are able to create styles specifically for different screen sizes.</p>
             <ul>
                 <li>Display the same content differently</li>
                 <li>"Reflow" between different screen resolutions</li>
                 <li>Three columns becomes two, two becomes one</li>
             </ul>
+            <p class="footnote">More on Media Queries: <a href="http://www.w3.org/TR/css3-mediaqueries/" title="W3 Specifications for Media Queries">W3 Specifications</a>, <a href="https://developer.mozilla.org/en/CSS/Media_queries" title="Mozilla Developer Network Media Queries">Mozilla Developer Network</a></p>
         </div>
     </div>
 
@@ -83,15 +85,51 @@
         </div>
     </div>
 
-    
+    <!-- Fallbacks -->
+    <div class="slide blue3">
+        <div class="content">
+            <h2>Drawbacks and Fallbacks</h2>
+            <hr />
+            <p><strong>The good news:</strong> Media Queries are widely supported!</p>
+            <p><strong>The bad news:</strong> ...except by IE 6, 7 and 8</p>
+            <p>You can make your peace with this and build a static size site for old IE, or use a polyfill that adds (limited) Media Query capabilities.</p><br />
+
+            <h4>Media Query Polyfills</h4>
+            <ul>
+                <li><a href="https://github.com/scottjehl/Respond" title="Respond.js">Respond.js</a></li>
+                <li><a href="https://github.com/pyrsmk/mediatizr" title="Mediatizr">Mediatizr</a></li>
+            </ul>
+        </div>
+    </div>
 
     <!-- Breakpoints -->
     <div class="slide blue1">
         <div class="content">
             <h2>Breaking It Down</h2>
             <hr />
-            <p>What screen sizes will be targeted? When will the layout cha</p>
+            <h4>Breakpoints</h4>
+            <p>This is a common breakpoint:</p>
+            <code>
+                <p class="media">@media only screen and (max-device-width:480px)</p>
+            </code>
+            <br />
+            <p>At what widths will the site change?</p>
             <img src="http://i.imgur.com/LMhaz.png" alt="Common device widths" />
+        </div>
+    </div>
+
+    <!-- Breakpoints -->
+    <div class="slide blue2">
+        <div class="content">
+            <h2>When to Break</h2>
+            <hr />
+            <p>Yes, it's likely that the mockups will be designed for specific widths and devices.</p>
+            <p>But we must be sure that the site doesn't just work for specific devices, but at <em>all</em> sizes.</p><br />
+            <p>Two philosophies to setting breakpoints:</p>
+            <ul>
+                <li>Set specific breakpoints in advance to target specific devices</li>
+                <li>Set breakpoints in relation to the design</li>
+            </ul>
         </div>
     </div>
 
@@ -102,7 +140,11 @@
             <hr />
             <p>The big question: Where to start?</p>
             <blockquote><h3>From the bottom up, or from the top down?</h3></blockquote>
-            
+            <p>The largest point of contention. It may be easier to start building with the largest layout, but it may be more beneficial to start with the mobile layout.</p>
+            <ul>
+                <li><em>Graceful Degradation vs. Progressive Enhancement</em></li>
+            </ul>
+            <p class="footnote">More about workflow: <a href="http://www.stuffandnonsense.co.uk/blog/about/320_and_up" title="320 and Up">320 and Up</a>, <a href="http://designshack.net/articles/css/mobilefirst/" title="Mobile First Design">Mobile First Design</a></p>
         </div>
     </div>
     
