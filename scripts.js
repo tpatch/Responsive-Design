@@ -12,15 +12,18 @@
 
 		scrolling: function () {
 			var yscroll = $(window).height();
-			var yscrollClear = $(window).height();
-			var maxScroll = ($(".slide").length) * yscrollClear;
+			var maxScroll = ($(".slide").length) * yscroll;
 			$(".prev").addClass("hidden");
+			console.log($(window).scrollTop());
+			function getOffset() {
+				return $(window).scrollTop();
+			};
 			
 			// Show/hide Arrows based on slide
 			$(window).scroll(function() {
-				if (!$(window).scrollTop()){
+				if (getOffset() < yscroll){
 					$(".prev")
-						.toggleClass("hidden")
+						.addClass("hidden")
 						.removeClass("visible");	
 				} 
 				else {
@@ -29,7 +32,7 @@
 						.removeClass("hidden"); 
 				};
 
-				if ($(window).scrollTop() >= (maxScroll-yscrollClear)) {
+				if (getOffset() >= (maxScroll-yscroll)) {
 					$(".next")
 						.addClass("hidden")
 						.removeClass("visible");
@@ -42,9 +45,10 @@
 			});
 			
 			$(".next").click(function(){
+				var offset = getOffset() + yscroll;
+				
 				if(yscroll < maxScroll){
-					$("html, body").animate({scrollTop: yscroll});
-					yscroll += yscrollClear;
+					$("html, body").animate({scrollTop: offset});
 				}
 				else{
 					$("html, body").animate({scrollTop: maxScroll});
@@ -52,20 +56,22 @@
 			});
 			
 			$(".prev").click(function(){
-				if(yscroll < yscrollClear){
-			   		$("html, body").animate({scrollTop: yscroll});
+				var offset = getOffset() - yscroll;
+				
+				if(getOffset() < yscroll){
+					$("html, body").animate({scrollTop: yscroll});
 				}
 				else {
-					$("html, body").animate({scrollTop: yscroll-(yscrollClear*2)});
-					yscroll -= yscrollClear;
+					$("html, body").animate({scrollTop: offset});
 				};
 			});
 			
 			$(document).keydown(function(e){
 				if (e.keyCode == 40 || e.keyCode == 39 || e.keyCode == 34) {
-				   if(yscroll < maxScroll){
-						$("html, body").animate({scrollTop: yscroll});
-						yscroll += yscrollClear;
+				   var offset = getOffset() + yscroll;
+					
+					if(yscroll < maxScroll){
+						$("html, body").animate({scrollTop: offset});
 					}
 					else{
 						$("html, body").animate({scrollTop: maxScroll});
@@ -75,14 +81,14 @@
 			
 			$(document).keydown(function(e){
 				if (e.keyCode == 38 || e.keyCode == 37 || e.keyCode == 33) {
-				   if(yscroll <= yscrollClear){
-				   		$("html, body").animate({scrollTop: 0});
+				   var offset = getOffset() - yscroll;
+				
+					if(getOffset() < yscroll){
+						$("html, body").animate({scrollTop: offset});
 					}
 					else {
-						$("html, body").animate({scrollTop: yscroll-(yscrollClear*2)});
-						yscroll -= yscrollClear;
+						$("html, body").animate({scrollTop: offset});
 					};
-					console.log(yscroll);
 				}
 			});
 		},
