@@ -13,50 +13,164 @@
 </head>
 
 <body>
-	<button class="prev">▲</button>
-    <button class="next">▼</button>
-	<div class="slide blue1 one">
-        <h1>All About Responsive Design</h1>
-        <span>by Trevor Patch</span>
+	<div class="button prev"></div>
+    <div class="button next"></div>
+	<div class="slide blue1">
+        <h1>Responsive Development</h1>
+        <span>Tips and Best Practices</span>
     </div>
     
-	<div class="slide blue2 two"> 
+	<div class="slide blue2"> 
     	<div class="content"> 
-            <h2>There are dozens of them!</h2>
-            <p>The number of devices being used to access the web is staggering, and most are not the typical desktop/laptop.</p>
-            <p>Desktop, laptop, netbook, tablet, eReader, phone, console</p>
+            <h2>A New Field</h2>
+            <hr />
+            <p>There is a LOT of information available on responsive design.</p>
+            <ul>
+                <li>Much of it is based on personal experience</li>
+                <li>There are no true standards</li>
+                <li>Several approaches, guidelines, some contradictory</li>
+            </ul>
         </div>
     </div>
     
-	<div class="slide blue3 three">
+    <div class="slide blue3"> 
+        <div class="content"> 
+            <h2>How Responsive Development is Possible</h2>
+            <hr />
+            <h4>CSS Media Queries</h4>
+            <p>We are able to create styles specifically for different screen sizes.</p>
+            <ul>
+                <li>Display the same content differently</li>
+                <li>"Reflow" between different screen resolutions</li>
+                <li>Three columns becomes two, two becomes one</li>
+            </ul>
+            <p class="footnote">More on Media Queries: <a href="http://www.w3.org/TR/css3-mediaqueries/" title="W3 Specifications for Media Queries">W3 Specifications</a>, <a href="https://developer.mozilla.org/en/CSS/Media_queries" title="Mozilla Developer Network Media Queries">Mozilla Developer Network</a></p>
+        </div>
+    </div>
+
+    <div class="slide blue1"> 
+        <div class="content"> 
+            <h2>Using Media Queries</h2>
+            <hr />
+            <ul>
+                <li>@media</li>
+                <li>Commonly used for printing</li>
+                <li>Operators: <span class="mono">not, and, only</span></li>
+                <li><span class="mono">only</span> hides styles sheets from older browsers</li>
+                <li>Has several features: <span class="mono">color, devices-aspect-ratio, orientation</span>, etc.</li>
+                <li>The <span class="mono">device-width</span> feature is used for responsive development</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide blue2"> 
+        <div class="content"> 
+            <h2>Using Media Queries, cont.</h2>
+            <hr />
+            <code>
+                <p class="comment">/* Smartphones (portrait and landscape) */</p>
+                <p class="media">@media only screen and (min-device-width:320px) and (max-device-width:480px)</p>
+                <p>{</p>
+                <p class="tabbed">/* Styles */</p>
+                <p>}</p>
+
+                <br />
+
+                <p class="comment">/* iPads (portrait and landscape) */</p>
+                <p class="media">@media only screen and (min-device-width:768px) and (max-device-width:1024px)</p>
+                <p>{</p>
+                <p class="tabbed">/* Styles */</p>
+                <p>}</p>
+            </code>
+        </div>
+    </div>
+
+    <!-- Fallbacks -->
+    <div class="slide blue3">
+        <div class="content">
+            <h2>Drawbacks and Fallbacks</h2>
+            <hr />
+            <p><strong>The good news:</strong> Media Queries are widely supported!</p>
+            <p><strong>The bad news:</strong> ...except by IE 6, 7 and 8</p>
+            <p>You can make your peace with this and build a static size site for old IE, or use a polyfill that adds (limited) Media Query capabilities.</p><br />
+
+            <h4>Media Query Polyfills</h4>
+            <ul>
+                <li><a href="https://github.com/scottjehl/Respond" title="Respond.js">Respond.js</a></li>
+                <li><a href="https://github.com/pyrsmk/mediatizr" title="Mediatizr">Mediatizr</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Breakpoints -->
+    <div class="slide blue1">
+        <div class="content">
+            <h2>Breaking It Down</h2>
+            <hr />
+            <h4>Breakpoints</h4>
+            <p>This is a common breakpoint:</p>
+            <code>
+                <p class="media">@media only screen and (max-device-width:480px)</p>
+            </code>
+            <br />
+            <p>At what widths will the site change?</p>
+            <img src="http://i.imgur.com/LMhaz.png" alt="Common device widths" />
+        </div>
+    </div>
+
+    <!-- Breakpoints -->
+    <div class="slide blue2">
+        <div class="content">
+            <h2>When to Break</h2>
+            <hr />
+            <p>Yes, it's likely that the mockups will be designed for specific widths and devices.</p>
+            <p>But we must be sure that the site doesn't just work for specific devices, but at <em>all</em> sizes.</p><br />
+            <p>Two philosophies to setting breakpoints:</p>
+            <ul>
+                <li>Set specific breakpoints in advance to target specific devices</li>
+                <li>Set breakpoints in relation to the design</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide blue3">
+        <div class="content">
+            <h2>When to Break</h2>
+            <hr />
+            <p>Here are some suggestions set by Metal Toad Media:</p>
+                <p class="tabbed">Three Layouts</p>
+                <img src="http://i.imgur.com/Zq5Eg.png" alt="Three layouts" class="tabbed" />
+
+                <p class="tabbed">Four Layouts</p>
+                <img src="http://i.imgur.com/LSaUq.png" alt="Four Layouts" class="tabbed" />
+
+            <p class="footnote">More on Breakpoints: <a href="http://www.metaltoad.com/blog/simple-device-diagram-responsive-design-planning" alt="A Simple Device Diagram for Responsive Design Planning">Responsive Design Planning</a>, <a href="http://www.paulund.co.uk/boilerplate-css-media-queries">Breakpint Boilerplate</a>, <a href="http://css-tricks.com/snippets/css/media-queries-for-standard-devices/">Media Queries for Standard Devices</a></p>
+        </div>
+    </div>
+
+    <!-- Bottom Up -->
+	<div class="slide blue1">
     	<div class="content">   
-            <h2>How Do We Reach All Users?</h2>
-            <p>Desktop, laptop, netbook, tablet, eReader, phone, console</p>
-            <p><a href="http://www.thismanslife.co.uk/projects/lab/responsiveillustration/">Sizing illustrated</a></p>
-        </div>
-    </div>
-    
-	<div class="slide blue1 four">
-    	<div class="content">   
-            <h2>Same Content, Different Show</h2>
-            <p>Reflow, don't create different content based on device</p>
-        </div>
-	</div>
-    
-    <div class="slide blue2 five">
-    	<div class="content">
-            <h2>Hitting the Sweet Spots</h2>
-            <img src="images/breakpoints.png" alt="Common device widths" />
+            <h2>Bottom Up!</h2>
+            <hr />
+            <p>The big question: Where to start?</p>
+            <blockquote><h4>From the bottom (mobile) or from the top (desktop)?</h4></blockquote>
+            <p>The largest point of contention. It may be easier to start building with the largest layout, but it may be more beneficial to start with the mobile layout.</p>
+            <ul>
+                <li><em>Graceful Degradation vs. Progressive Enhancement</em></li>
+            </ul>
+            <p class="footnote">More about workflow: <a href="http://www.stuffandnonsense.co.uk/blog/about/320_and_up" title="320 and Up">320 and Up</a>, <a href="http://designshack.net/articles/css/mobilefirst/" title="Mobile First Design">Mobile First Design</a></p>
         </div>
     </div>
     
     
     
+
     <!-- Biblio/Links -->
     <div class="slide">
     	<div class="content">
             <h2>For More Information</h2>
-            
+            <hr />
             <h3>General</h3>
             <ul>
             	<li><a href="http://www.metaltoad.com/blog/simple-device-diagram-responsive-design-planning">A Simple Device Diagram for Responsive Design Planning</a></li>

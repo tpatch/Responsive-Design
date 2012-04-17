@@ -7,45 +7,92 @@
 	window.RD = {
 		init: function () {
 			this.scrolling();
+			this.slidesNum();
 		},
 
 		scrolling: function () {
 			var yscroll = $(window).height();
+			var yscrollClear = $(window).height();
+			var maxScroll = ($(".slide").length) * yscrollClear;
 			$(".prev").addClass("hidden");
 			
-			// Show/hide Previous Arrow based on slide
+			// Show/hide Arrows based on slide
 			$(window).scroll(function() {
 				if (!$(window).scrollTop()){
 					$(".prev")
-						.addClass("hidden")
+						.toggleClass("hidden")
 						.removeClass("visible");	
-				} else {
+				} 
+				else {
 					$(".prev")
 						.addClass("visible")
 						.removeClass("hidden"); 
+				};
+
+				if ($(window).scrollTop() >= (maxScroll-yscrollClear)) {
+					$(".next")
+						.addClass("hidden")
+						.removeClass("visible");
+				}
+				else {
+					$(".next")
+						.addClass("visible")
+						.removeClass("hidden");
 				}
 			});
 			
 			$(".next").click(function(){
-				window.scrollBy(0, yscroll);
+				if(yscroll < maxScroll){
+					$("html, body").animate({scrollTop: yscroll});
+					yscroll += yscrollClear;
+				}
+				else{
+					$("html, body").animate({scrollTop: maxScroll});
+				};
 			});
 			
 			$(".prev").click(function(){
-				window.scrollBy(0, -yscroll);
+				if(yscroll < yscrollClear){
+			   		$("html, body").animate({scrollTop: yscroll});
+				}
+				else {
+					$("html, body").animate({scrollTop: yscroll-(yscrollClear*2)});
+					yscroll -= yscrollClear;
+				};
 			});
 			
 			$(document).keydown(function(e){
 				if (e.keyCode == 40 || e.keyCode == 39 || e.keyCode == 34) {
-				   window.scrollBy(0, yscroll);
-				   return false;
+				   if(yscroll < maxScroll){
+						$("html, body").animate({scrollTop: yscroll});
+						yscroll += yscrollClear;
+					}
+					else{
+						$("html, body").animate({scrollTop: maxScroll});
+					};
 				}
 			});
 			
 			$(document).keydown(function(e){
 				if (e.keyCode == 38 || e.keyCode == 37 || e.keyCode == 33) {
-				   window.scrollBy(0, -yscroll);
-				   return false;
+				   if(yscroll <= yscrollClear){
+				   		$("html, body").animate({scrollTop: 0});
+					}
+					else {
+						$("html, body").animate({scrollTop: yscroll-(yscrollClear*2)});
+						yscroll -= yscrollClear;
+					};
+					console.log(yscroll);
 				}
+			});
+		},
+
+		slidesNum: function () {
+			var slides = $(".slide");
+			var slidesNum = slides.length;
+
+			$(".slide").each(function(i){
+				$(this).addClass("slide" + (i+1));
 			});
 		}
 		

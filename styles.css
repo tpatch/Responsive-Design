@@ -6,37 +6,84 @@
 html, body { width:100%; height:100%; margin:0; padding:0; }
 body { font:normal 1em 'Noticia Text', serif; color:#FFF; }
 
+p,ol,ul,li { margin:0; padding:0; }
+h1,h2,h3,h4,h5,h6 { margin:0 0 12px 0; }
+h2 { font-size:2em; margin-top:18px; }
+h3 { font-size:1.6em; }
+h4 { font-size:1.4em; }
+h5 { font-size:1.2em; }
+h6 { font-size:1.2em; }
+a:link { color:#f1a924; text-decoration:underline; }
+a:active, a:hover, a:visited { color:#f1a924; }
+
+.blue1 { background:#0C2D68; }
+.blue2 { background:#334B78; }
+.blue3 { background:#2550A0; }
+
+.mono { font-family:monospace;}
+.tabbed { text-indent:1em; }
+img.tabbed { margin:0 0 0 1em;}
+
 .hidden { display:none; }
 .visible { display:block; }
 
-button.prev { top:5%; }
-button.next { bottom:5%; }
-
-button { 
-	position:fixed; 
-	right:5%; 
-	width:7%; 
-	height:8%; 
-	background:#152e5b; 
-	background: linear-gradient(top, #152e5b 0%,#2b5fbc 100%);
-	border:1px solid #081224; 
-	border-radius:8px; 
-	box-shadow:1px 2px 1px #333; 
-	z-index:200; color:#EEE; 
-	font-size:2.4em; 
+.button.prev { 
+	top:7%; 
+}
+.button.next { 
+	bottom:7%;
 }
 
-.slide { width:100%; height:100%; position:relative; }
-.content { width:80%; float:left; margin:0 0 0 5%; }
+.button.prev:after { 
+	content:"";
+	position:absolute;
+	top:-40px;
+	left:-10px;
+	border-bottom:50px solid #d7e5ff;
+	border-left:30px solid transparent; 
+	border-right:30px solid transparent;
+}
+.button.next:before { 
+	content:"";
+	position:absolute;
+	bottom:-40px;
+	left:-10px;
+	border-top:50px solid #d7e5ff;
+	border-left:30px solid transparent; 
+	border-right:30px solid transparent;
+}
+
+.button { 
+	position:fixed; 
+	right:5%; 
+	width:40px;
+	height:20px;
+	z-index:200; 
+	background:#d7e5ff; 
+	
+}
+.button:hover { cursor:pointer; }
+
+.slide { width:100%; height:100%; display:block; clear:both; position:relative; }
+.content { width:80%; float:left; margin:0 0 0 5%; font-size:1.8em; }
+.content hr { width:100%; height:2px; color:#FFF; background:#FFF; margin:0 0 40px 0; border:0; box-shadow:1px 1px 0px #666; }
+.content p { margin:0 0 12px 0; }
+.content ul { margin:20px 0 20px 50px; }
 .content img { max-width:100%; }
+.content p.footnote { position:absolute; width:80%; bottom:7%; font-size:.7em; }
 
-h1,h2,h3,h4,h5,h6,p,ol,ul,li { margin:0; padding:0; }
-
-h2 {}
-
-.blue1 { background:#2551a0; }
-.blue2 { background:#2f66c9; }
-.blue3 { background:#618ddb; }
+code { 
+	width:80%; 
+	padding:20px; 
+	background:#200E6C; 
+	color:#F8CF84; 
+	display: block; 
+	border-radius:12px; 
+	font-size:1.2em;
+}
+.content code p { margin:0 0 6px 0; }
+code .comment { color:#6CCAC0; }
+code .media { color:#FFF; }
 
 
 /** Slide Specific Styles **/
@@ -49,16 +96,18 @@ h1 {
 	font:bold 5.5em 'Fredericka the Great', cursive;
 	text-shadow:1px 2px 1px #333;
 }
-.one span { display:block; width:80%; text-align:center; margin:0 auto; position:relative; top:34%; font-size:2em; }
+.slide1 span { display:block; width:80%; text-align:center; margin:0 auto; position:relative; top:34%; font-size:2em; }
 
 
 /** Mobile Styles **/
 @media (max-width:600px) {
-	.slide h1 { font-size:3em; }
-	button.prev, button.next { font-size:1.2em; }
+	body { font-size:.5em; }
+	.slide { min-height:100%; height:auto; }
+	.content { width:90%; }
+	.button { display:none; }
 }
 
-@media (min-width:600px) and (max-width:960px) {
-		
+@media (min-width:600px) and (max-width:1024px) {
+	body { font-size:.8em; }
 }
 
