@@ -82,8 +82,8 @@ code {
 	font-size:1.2em;
 }
 .content code p { margin:0 0 6px 0; }
-code .comment { color:#6CCAC0; }
-code .media { color:#FFF; }
+.content code .comment { color:#6CCAC0; }
+.content code .media { color:#FFF; }
 
 
 /** Slide Specific Styles **/
@@ -97,7 +97,7 @@ h1 {
 	text-shadow:1px 2px 1px #333;
 }
 .slide1 span { display:block; width:80%; text-align:center; margin:0 auto; position:relative; top:34%; font-size:2em; }
-
+.slide9 img { max-height:15%; }
 
 /** Mobile Styles **/
 @media (max-width:600px) {
@@ -109,5 +109,9 @@ h1 {
 
 @media (min-width:600px) and (max-width:1024px) {
 	body { font-size:.8em; }
+}
+
+@media (min-width:1600px) {
+	.slide9 img { height:auto; max-height:100%; }
 }
 

@@ -15,8 +15,16 @@
 			var maxScroll = ($(".slide").length) * yscroll;
 			$(".prev").addClass("hidden");
 			console.log($(window).scrollTop());
+
+			// Get the pages current offset, clean it up
 			function getOffset() {
-				return $(window).scrollTop();
+				var currentOffset = $(window).scrollTop();
+
+				if (currentOffset % yscroll != 0) {
+					currentOffset -= (currentOffset % yscroll);
+				};
+
+				return currentOffset;
 			};
 			
 			// Show/hide Arrows based on slide
