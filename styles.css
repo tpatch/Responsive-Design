@@ -119,10 +119,12 @@ h1 {
 	.slide { min-height:100%; height:auto; }
 	.content { width:90%; }
 	.button { display:none; }
+	img.grow { display:none; }
 }
 
 @media (min-width:600px) and (max-width:1024px) {
 	body { font-size:.8em; }
+	img.grow { display:none; }
 }
 
 @media (min-width:1600px) {
