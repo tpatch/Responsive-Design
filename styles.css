@@ -6,6 +6,7 @@
 html, body { width:100%; height:100%; margin:0; padding:0; }
 body { font:normal 1em 'Noticia Text', serif; color:#FFF; }
 
+img { box-shadow:2px 2px 4px #000; }
 p,ol,ul,li { margin:0; padding:0; }
 h1,h2,h3,h4,h5,h6 { margin:0 0 12px 0; }
 h2 { font-size:2em; margin-top:18px; }
@@ -64,7 +65,7 @@ img.tabbed { margin:0 0 0 1em;}
 }
 .button:hover { cursor:pointer; }
 
-.slide { width:100%; height:100%; display:block; clear:both; position:relative; }
+.slide { width:100%; height:100%; display:block; clear:both; position:relative; overflow:hidden; }
 .content { width:80%; float:left; margin:0 0 0 5%; font-size:1.8em; }
 .content hr { width:100%; height:2px; color:#FFF; background:#FFF; margin:0 0 40px 0; border:0; box-shadow:1px 1px 0px #666; }
 .content p { margin:0 0 12px 0; }
@@ -74,7 +75,8 @@ img.tabbed { margin:0 0 0 1em;}
 
 code { 
 	width:80%; 
-	padding:20px; 
+	padding:20px;
+	margin:0 0 16px 0; 
 	background:#200E6C; 
 	color:#F8CF84; 
 	display: block; 
@@ -85,6 +87,18 @@ code {
 .content code .comment { color:#6CCAC0; }
 .content code .media { color:#FFF; }
 
+img.grow { width:20%; height:auto; position:relative; z-index:200; }
+img.grow:hover {
+	-webkit-animation:growing;
+	-webkit-animation-duration: .5s;
+	-webkit-animation-timing-function: ease-in;
+	-webkit-animation-fill-mode: forwards;
+	width:100%;
+}
+@-webkit-keyframes growing {
+	from { width:20%;}
+	to {width:100%; top:-300px; box-shadow:0 0 80px #000;}
+}
 
 /** Slide Specific Styles **/
 h1 { 
