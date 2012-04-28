@@ -122,12 +122,12 @@ h1 {
 	img.grow { display:none; }
 }
 
-@media (min-width:600px) and (max-width:1024px) {
-	body { font-size:.8em; }
+@media (min-width:600px) and (max-width:1200px) {
+	body { font-size:.5em; }
 	img.grow { display:none; }
 }
 
-@media (min-width:1600px) {
+@media (min-width:1201px) {
 	.slide9 img { height:auto; max-height:100%; }
 }
 
